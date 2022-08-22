@@ -1,0 +1,243 @@
+body{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    background-color: #2e2d2d;
+    font-family: 'Poppins';font-size: 15px;
+}
+
+.grid{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-gap: 30px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.item{
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #5fc479;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.info{
+
+    margin-top: 10px;
+    background-image: url(/assets/iconInfo.png);
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.info:hover{
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+}
+
+.report{
+    margin-top: 10px;
+    background-image: url(/assets/iconReport.png);
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.report:hover{
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+}
+
+.circle{
+    margin-top: 10px;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+}
+
+.user{
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: white;
+}
+.statusIcon{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    background-color: #1eee53;
+}
+.status{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: white;
+}
+
+.name{
+    min-width: 250px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.Bodysm2{
+    background-color: #c45f5f;
+
+}
+
+.iconsm2{
+    background-color: #ff1010;
+}
+
+.Bodynt1{
+    background-color: #c45f5f;
+
+}
+
+.iconnt1{
+    background-color: #ff1010;
+}
+
+.modal-containerInfo{
+    width: 100%;
+    display: none;
+    position: fixed;
+    top:30px;
+    z-index: 999;
+    justify-content: center;
+}
+
+.modal-containerReport{
+    width: 100%;
+    display: none;
+    position: fixed;
+    top:30px;
+    z-index: 999;
+    justify-content: center;
+}
+
+.modalInfo{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+
+}
+
+.modalReport{
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+}
+
+.active{
+    display: flex;
+}
+
+.active .modalInfo{
+    animation: modalInfo .4s;
+}
+
+.active .modalReport{
+    animation: modalReport .4s;
+}
+
+@keyframes modalInfo{
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes modalReport{
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.btnOk{
+    background-color: #2e2d2d !important;
+    color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 40%;
+    margin-right: 40%;
+
+}
+.btnOk:hover{
+    cursor: pointer;
+    
+}
+
+.btnSend{
+    background-color: #2e2d2d !important;
+    color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 40%;
+    margin-right: 40%;
+
+}
+.btnSend:hover{
+    cursor: pointer;
+    
+}
+
+.btnCancel{
+    background-color: #2e2d2d !important;
+    color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 40%;
+    margin-right: 40%;
+
+}
+.btnCancel:hover{
+    cursor: pointer;
+}
+
+.reportBox{
+    display: flex;
+    justify-content: space-around;
+}
+
+#inputReportName{
+    width: 330px;
+}
