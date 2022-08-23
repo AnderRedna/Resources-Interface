@@ -60,6 +60,7 @@ body{
 
 .circle{
     margin-top: 10px;
+
     align-items: center;
     display: flex;
     justify-content: center;
@@ -81,12 +82,11 @@ body{
     width: 30px;
     height: 30px;
     margin-right: 5px;
-    margin-top: 2px;
     background-color: #1eee53;
 }
 .status{
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     display: flex;
     justify-content: center;
     border-radius: 10px;
@@ -95,23 +95,12 @@ body{
     background-color: white;
 }
 
-.timer{
-    padding-top: 2px;
-    padding-bottom: 2px;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    margin-left: 75px;
-    margin-right: 75px;
-    background-color: white;
-}
-
 .name{
     min-width: 250px;
     margin-left: 10px;
     margin-right: 10px;
     color: white;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .Bodynt1{
