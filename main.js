@@ -3,6 +3,7 @@ const modalReport = document.querySelector('.modal-containerReport');
 var userUrl = document.querySelector('#systemUrl');
 var userLogin = document.querySelector('#userLogin');
 var userPass = document.querySelector('#userPass');
+var btnAcess = document.getElementById('textAcess');
 
 
 function sysCredentials(url, login, password){
@@ -48,16 +49,12 @@ function sendMail(){
         alert("E-mail enviado com sucesso!");
         CancelReport()
     })
-if (document.getElementById("name sm1").innerHTML == "Disponível") {
-    console.log("Disponível");
-}
 }
 
 function changeStatus(z){
     let rgbDiv = window.getComputedStyle(z).backgroundColor;
     let rgbChild = z.children[2].children[0];
-    let txtChild = z.children[2];
-    console.log(txtChild)
+    // let txtChild = z.children[2];
     if(rgbDiv == "rgb(95, 196, 121)"){
         z.style.background = "#c45f5f";
         rgbChild.style.background = "#ff1010";
@@ -66,7 +63,6 @@ function changeStatus(z){
         rgbChild.style.background = "#1eee53";
     }
 }
-
 
 
 // not Using
