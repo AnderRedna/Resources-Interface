@@ -51,11 +51,10 @@
                <h2 class="user sm1">User 1</h2>
                <h2 class="status sm1">
                   <div class="statusIcon iconsms1"></div>
-                  Livre
+                  Disponível
                </h2>
-
-               <h2 class="timer sm1">
-                  30:00
+               <h2 onclick="startTimer()" class="timer sm1">
+                  <t id="textAcess">Acessar</t>
                </h2>
                <h2 id="namesm1" class="name sm1">Disponível</h2>
             </div>
@@ -73,8 +72,8 @@
                   <div class="statusIcon iconsms2"></div>
                   Disponível
                </h2>
-               <h2 class="timer sm2">
-                  30:00
+               <h2 onclick="startTimer()" class="timer sm2">
+                  <t id="textAcess">Acessar</t>
                </h2>
                <h2 id="namesm2" class="name sm2">Disponível</h2>
             </div>
@@ -93,41 +92,10 @@
                   Disponível
                </h2>
                <h2 class="timer sm3">
-                  30:00
+                  Acessar
                </h2>
                <h2 id="namesm3" class="name sm3">Disponível</h2>
             </div>
-            <div class="item Bodynt1" onclick="changeStatus(this)">
-                <div class="header itemnt1">
-                   <div class="info itemnt1" onclick="openModal(3)"></div>
-                   <div class="circle">
-                      <h1>NT</h1>
-                   </div>
-                   <div class="report itemnt1" onclick="openReport()"></div>
-                </div>
-                <h2 class="user nt1">User 1</h2>
-                <h2 class="status nt1">
-                   <div class="statusIcon iconnt1"></div>
-                   Ocupado
-                </h2>
-                <h2 contenteditable="true"  class="name nt1">Kleuber Cardoso</h2>
-             </div>
-             <div class="item Bodynt2" onclick="changeStatus(this)">
-                <div class="header itemnt2">
-                   <div class="info itemnt2" onclick="openModal(4)"></div>
-                   <div class="circle">
-                      <h1>NT</h1>
-                   </div>
-                   <div class="report itemnt2" onclick="openReport()"></div>
-                </div>
-                <h2 class="user nt2">User 2</h2>
-                <h2 class="status nt2">
-                   <div class="statusIcon iconnt2"></div>
-                   Livre
-                </h2>
-                <h2 contenteditable="true" class="name nt2">Disponível</h2>
-             </div>
-          </div>
 
             <div class="item Bodysm4" onclick="changeStatus(this)">
                <div class="header itemsm4">
@@ -143,16 +111,15 @@
                   Disponível
                </h2>
                <h2 class="timer sm4">
-                  30:00
+                  Acessar
                </h2>
-               <h2 id="namesm4" class="name sm4">Disponível</h2>
+               <h2 id="namesm4" class="name sm">Disponível</h2>
             </div>
-            
         </div>
+
         <script src="main.js"></script>
         <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-      
       <script type="text/javascript">
         emailjs.init('VEe6yCyK6JDJuTBrz')
       </script>
