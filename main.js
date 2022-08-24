@@ -66,3 +66,28 @@ function changeStatus(z){
         rgbChild.style.background = "#1eee53";
     }
 }
+
+
+
+// not Using
+// function clicarnoBotao(){
+//     $('button').click(function(){
+//         $('.alert').removeClass("hide");
+//         $('.alert').addClass("show");
+//         $('.alert').addClass("showAlert");
+//         setTimeout(function() {
+//             $('.alert').addClass("hide");
+//             $('.alert').removeClass("show");
+//     },5000);
+// });
+//     $('.close-btn').click(function(){
+//         $('.alert').addClass("hide");
+//         $('.alert').removeClass("show");
+//     });
+// }
+
+
+// function importApp(){
+//     App.start()
+
+// }
