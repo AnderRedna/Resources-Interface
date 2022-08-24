@@ -65,31 +65,25 @@ function changeStatus(z){
 }
 
 
+// not Using
+// function clicarnoBotao(){
+//     $('button').click(function(){
+//         $('.alert').removeClass("hide");
+//         $('.alert').addClass("show");
+//         $('.alert').addClass("showAlert");
+//         setTimeout(function() {
+//             $('.alert').addClass("hide");
+//             $('.alert').removeClass("show");
+//     },5000);
+// });
+//     $('.close-btn').click(function(){
+//         $('.alert').addClass("hide");
+//         $('.alert').removeClass("show");
+//     });
+// }
 
-const startingMinutes = 0.1;
-let time = startingMinutes * 60;
-var sera = 0;
-let ativar = 0;
 
-function startTimer(){
-    // if (sera == 0) {
-        //     sera = 1;
-        // }else if (sera == 2) {
-            //     console.log('executando o sera 2')
-            //     clearInterval(obj)
-            // }
-            if(btnAcess.innerText != '00:00'){
-        obj = setInterval(startTimer, 500);
-            var minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-        
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-            btnAcess.innerHTML = `${minutes}:${seconds}`;
-            time--;
-        }else{
-            btnAcess.innerHTML = 'Acessar'
-            clearInterval(obj)
-        }
-    }
+// function importApp(){
+//     App.start()
+
+// }
