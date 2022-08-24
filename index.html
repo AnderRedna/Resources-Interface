@@ -10,6 +10,7 @@
       <title>Vm Treinamento</title>
    </head>
    <body>
+     
       <div class="modal-containerInfo">
          <div class="modalInfo">
             <h2>Info</h2>
@@ -96,7 +97,37 @@
                </h2>
                <h2 id="namesm3" class="name sm3">Disponível</h2>
             </div>
-
+            <div class="item Bodynt1" onclick="changeStatus(this)">
+                <div class="header itemnt1">
+                   <div class="info itemnt1" onclick="openModal(3)"></div>
+                   <div class="circle">
+                      <h1>NT</h1>
+                   </div>
+                   <div class="report itemnt1" onclick="openReport()"></div>
+                </div>
+                <h2 class="user nt1">User 1</h2>
+                <h2 class="status nt1">
+                   <div class="statusIcon iconnt1"></div>
+                   Ocupado
+                </h2>
+                <h2 contenteditable="true"  class="name nt1">Kleuber Cardoso</h2>
+             </div>
+             <div class="item Bodynt2" onclick="changeStatus(this)">
+                <div class="header itemnt2">
+                   <div class="info itemnt2" onclick="openModal(4)"></div>
+                   <div class="circle">
+                      <h1>NT</h1>
+                   </div>
+                   <div class="report itemnt2" onclick="openReport()"></div>
+                </div>
+                <h2 class="user nt2">User 2</h2>
+                <h2 class="status nt2">
+                   <div class="statusIcon iconnt2"></div>
+                   Livre
+                </h2>
+                <h2 contenteditable="true" class="name nt2">Disponível</h2>
+             </div>
+          </div>
             <div class="item Bodysm4" onclick="changeStatus(this)">
                <div class="header itemsm4">
                   <div class="info itemsm4" onclick="openModal(1)"></div>
@@ -122,6 +153,13 @@
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
       <script type="text/javascript">
         emailjs.init('VEe6yCyK6JDJuTBrz')
+      </script>
+
+      <script type="module">
+         import { App } from './src/App.js';
+
+         App.start();
+      
       </script>
     </body>
 </html>
