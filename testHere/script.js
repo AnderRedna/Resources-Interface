@@ -20,51 +20,45 @@ const timerVm1 = new timerVm('btnA', 'countdownA');
 const timerVm2 = new timerVm('btnB', 'countdownB');
 
 function resetTimer() {
-    valueTotal.inUse = false;
-    valueTotal.time = 299;
-}
-
-
-var valueTotal;
-
-function choose(htmlValue){
-    return htmlValue;
+    timerVm1.inUse = false;
+    timerVm1.time = 299;
 }
 
 function verify(timer1){
-    valueTotal = choose(timer1)
-    if(valueTotal.time > 300){
+    console.log('verify')
+    if(timer1.time > 300){
         console.log('if verify')
     }else{
         console.log('else verify')
-        if(valueTotal.inUse == false){
-            valueTotal.inUse = true;
+        if(timer1.inUse == false){
+            timer1.inUse = true;
             intervalTimer = setInterval(startTimer, 8);
         }else{
-            valueTotal.time += 300;
+            timer1.time += 300;
         }
     }
+    return timer1;
 }
 
 function startTimer(){
-    if(valueTotal.time < 300){
-        valueTotal.btn.innerText = '+30:00'
+    if(timer1.time < 300){
+        timer1.btn.innerText = '+30:00'
     }else{
-        valueTotal.btn.innerText = 'Usar'
+        timer1.btn.innerText = 'Usar'
     }
-        var minutes = Math.floor( valueTotal.time / 60);
-        var seconds = valueTotal.time % 60;
+        var minutes = Math.floor( timer.time / 60);
+        var seconds = timer.time % 60;
         
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         
-        valueTotal.countdown.innerHTML = `${minutes}:${seconds}`;
-        valueTotal.time--; 
-    if(valueTotal.time === -1){
+        timer.countdown.innerHTML = `${minutes}:${seconds}`;
+        timer.time--; 
+    if(timer.time === -1){
         console.log('Parando o Timer')
         clearInterval(intervalTimer)
-        resetTimer(valueTotal);
-        valueTotal.countdown.innerText = '10:00'
-        valueTotal.btn.innerText = 'Usar'
+        resetTimer();
+        timer.countdown.innerText = '10:00'
+        timer.btn.innerText = 'Usar'
     };
 };
