@@ -14,45 +14,46 @@ class timerVm {
 const timerVm1 = new timerVm('btnA', 'countdownA');
 const timerVm2 = new timerVm('btnB', 'countdownB');
 
-function resetTimer(timer) {
+function resetTimer() {
     timerVm1.inUse = false;
     timerVm1.time = 299;
 }
 
-function verify(){
+function verify(timer1){
     console.log('verify')
-    if(timerVm1.time > 300){
+    if(timer1.time > 300){
         console.log('if verify')
     }else{
         console.log('else verify')
-        if(timerVm1.inUse == false){
-            timerVm1.inUse = true;
+        if(timer1.inUse == false){
+            timer1.inUse = true;
             intervalTimer = setInterval(startTimer, 8);
         }else{
-            timerVm1.time += 300;
+            timer1.time += 300;
         }
     }
+    return timer1;
 }
 
 function startTimer(){
-    if(timerVm1.time < 300){
-        timerVm1.btn.innerText = '+30:00'
+    if(timer1.time < 300){
+        timer1.btn.innerText = '+30:00'
     }else{
-        timerVm1.btn.innerText = 'Usar'
+        timer1.btn.innerText = 'Usar'
     }
-        var minutes = Math.floor( timerVm1.time / 60);
-        var seconds = timerVm1.time % 60;
+        var minutes = Math.floor( timer.time / 60);
+        var seconds = timer.time % 60;
         
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         
-        timerVm1.countdown.innerHTML = `${minutes}:${seconds}`;
-        timerVm1.time--; 
-    if(timerVm1.time === -1){
+        timer.countdown.innerHTML = `${minutes}:${seconds}`;
+        timer.time--; 
+    if(timer.time === -1){
         console.log('Parando o Timer')
         clearInterval(intervalTimer)
         resetTimer();
-        timerVm1.countdown.innerText = '10:00'
-        timerVm1.btn.innerText = 'Usar'
+        timer.countdown.innerText = '10:00'
+        timer.btn.innerText = 'Usar'
     };
 };
