@@ -1,41 +1,33 @@
 function countdown(btnElement, element, minutes, seconds) {
     var el = document.getElementById(element);
     var btnEl = document.getElementById(btnElement);
-
-    var interval = setInterval(function() {
-        if(seconds == 0) {
-            if(minutes == 0) {
-                el.innerHTML = "10:00";
-                btnEl.disabled = false;
-                console.log('ativando'); 
-                clearInterval(interval);
-                return;
-            }else { 
-                minutes--;
-                seconds = 60;
+        var interval = setInterval(function() {
+            if(seconds == 0) {
+                if(minutes == 0) {
+                    el.innerHTML = "10:00";
+                    // btnEl.style.display="inline-flex";
+                    clearInterval(interval);
+                    return;
+                }else { 
+                    minutes--;
+                    seconds = 60;
+                }
             }
-        }
-        if(minutes < 5){
-            btnEl.disabled = 'true';
-            console.log('<5')
-            console.log(minutes);
-            console.log(seconds)
-        }
-        if(minutes > 9 && minutes < 100) {
-            var minute_text = minutes;
-        }else if(minutes > 0 && minutes < 10){
-            var minute_text = '0' + minutes;
-        }else {
-            var minute_text = '0' + minutes;
-        }
-        var second_text = seconds < 10 ? '0' : '';
-        el.innerHTML = minute_text + ':' + second_text + seconds;
-        seconds--;
-    }, 10);
-}
-
-//Start as many timers as you want
-
+            if(minutes < 5){
+                // btnEl.style.display="none";
+            }
+            if(minutes > 9 && minutes < 100) {
+                var minute_text = minutes;
+            }else if(minutes > 0 && minutes < 10){
+                var minute_text = '0' + minutes;
+            }else {
+                var minute_text = '0' + minutes;
+            }
+            var second_text = seconds < 10 ? '0' : '';
+            el.innerHTML = minute_text + ':' + second_text + seconds;
+            seconds--;
+        }, 10);
+    }
 var start1 = document.getElementById('timer1');
 var start2 = document.getElementById('timer2');
 var start3 = document.getElementById('timer3');
