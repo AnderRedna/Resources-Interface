@@ -36,9 +36,9 @@ var start4 = document.getElementById('timer4');
 start1.onclick = function() {
     countdown('timer1', 'countdown1', 11, 02);
 }
-
 start2.onclick = function() {
     countdown('timer2','countdown2', 5, 20);
+
 }
 
 start3.onclick = function() {
