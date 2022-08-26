@@ -1,70 +1,50 @@
-
-let btnTextA = document.getElementById('btnA')
-let coutdownA = document.getElementById('countdownA');
-let btnTextB = document.getElementById('btnB')
-let coutdowBn = document.getElementById('countdownB');
-
-class timerVm {
-    constructor(btn, countdown){
-        this.btn = document.getElementById(btn);
-        this.countdown = document.getElementById(countdown);
-        this.inUse = false;
-        this.time = 300;
+function countdown(btnElement, element, minutes, seconds) {
+    var el = document.getElementById(element);
+    var btnEl = document.getElementById(btnElement);
+        var interval = setInterval(function() {
+            if(seconds == 0) {
+                if(minutes == 0) {
+                    el.innerHTML = "10:00";
+                    // btnEl.style.display="inline-flex";
+                    clearInterval(interval);
+                    return;
+                }else { 
+                    minutes--;
+                    seconds = 60;
+                }
+            }
+            if(minutes < 5){
+                // btnEl.style.display="none";
+            }
+            if(minutes > 9 && minutes < 100) {
+                var minute_text = minutes;
+            }else if(minutes > 0 && minutes < 10){
+                var minute_text = '0' + minutes;
+            }else {
+                var minute_text = '0' + minutes;
+            }
+            var second_text = seconds < 10 ? '0' : '';
+            el.innerHTML = minute_text + ':' + second_text + seconds;
+            seconds--;
+        }, 10);
     }
+var start1 = document.getElementById('timer1');
+var start2 = document.getElementById('timer2');
+var start3 = document.getElementById('timer3');
+var start4 = document.getElementById('timer4');
+
+start1.onclick = function() {
+    countdown('timer1', 'countdown1', 11, 02);
 }
-const timerVm1 = new timerVm('btnA', 'countdownA');
-const timerVm2 = new timerVm('btnB', 'countdownB');
+start2.onclick = function() {
+    countdown('timer2','countdown2', 5, 20);
 
-function resetTimer() {
-    valueTotal.inUse = false;
-    valueTotal.time = 299;
-}
-
-
-btnTextA.onclick = () => {
-    verify(timerVm1);
-}
-
-var valueTotal;
-
-function choose(htmlValue){
-    return htmlValue;
 }
 
-function verify(timer1){
-    valueTotal = choose(timer1)
-    if(valueTotal.time > 300){
-        console.log('if verify')
-    }else{
-        console.log('else verify')
-        if(valueTotal.inUse == false){
-            valueTotal.inUse = true;
-            intervalTimer = setInterval(startTimer, 8);
-        }else{
-            valueTotal.time += 300;
-        }
-    }
+start3.onclick = function() {
+    countdown('timer3','countdown3', 3, 15);
 }
 
-function startTimer(){
-    if(valueTotal.time < 300){
-        valueTotal.btn.innerText = '+30:00'
-    }else{
-        valueTotal.btn.innerText = 'Usar'
-    }
-        var minutes = Math.floor( valueTotal.time / 60);
-        var seconds = valueTotal.time % 60;
-        
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-        valueTotal.countdown.innerHTML = `${minutes}:${seconds}`;
-        valueTotal.time--; 
-    if(valueTotal.time === -1){
-        console.log('Parando o Timer')
-        clearInterval(intervalTimer)
-        resetTimer(valueTotal);
-        valueTotal.countdown.innerText = '10:00'
-        valueTotal.btn.innerText = 'Usar'
-    };
-};
+start4.onclick = function() {
+    countdown('timer4','countdown4', 1, 15);
+}
