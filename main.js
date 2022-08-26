@@ -1,3 +1,4 @@
+// import { App } from './src/App.js';
 const modalInfo = document.querySelector('.modal-containerInfo');
 const modalReport = document.querySelector('.modal-containerReport');
 var userUrl = document.querySelector('#systemUrl');
@@ -66,6 +67,11 @@ function changeStatus(z){
         rgbChild.style.background = "#1eee53";
     }
 }
+
+function NotifStart(){
+    App.start();
+}
+
 
 
 

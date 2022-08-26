@@ -147,8 +147,15 @@
                </h2>
                <h2 id="namesm4" class="name sm4">Disponível</h2>
             </div>
+
+            <div>
+               <button class="cookie" onclick="App.start()">
+                  cookie Teste
+               </button>
+            </div>
         </div>
         <script src="main.js"></script>
+        <script type="module" src="./src/App.js"></script>
         <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
       
@@ -156,11 +163,13 @@
         emailjs.init('VEe6yCyK6JDJuTBrz')
       </script>
 
-      <script type="module">
+      
+
+      <!-- <script type="module">
          import { App } from './src/App.js';
 
          App.start();
       
-      </script>
+      </script> -->
     </body>
 </html>
