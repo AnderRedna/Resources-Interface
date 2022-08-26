@@ -5,7 +5,7 @@ var userUrl = document.querySelector('#systemUrl');
 var userLogin = document.querySelector('#userLogin');
 var userPass = document.querySelector('#userPass');
 var btnAcess = document.getElementById('textAcess');
-
+const notif = document.getElementById('Notif');
 
 function sysCredentials(url, login, password){
     userUrl.innerHTML = url;
@@ -65,11 +65,9 @@ function changeStatus(z){
     }
 }
 
-function NotifStart(){
-    console.log(App.start());
+notif.onclick = () => {
+    App.start();
 }
-
-
 
 // not Using
 // function clicarnoBotao(){

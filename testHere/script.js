@@ -1,12 +1,8 @@
-import { App } from '../src/App.js';
+
 let btnTextA = document.getElementById('btnA')
 let coutdownA = document.getElementById('countdownA');
 let btnTextB = document.getElementById('btnB')
 let coutdowBn = document.getElementById('countdownB');
-
-function NotifStart(){
-    App.start();
-}
 
 class timerVm {
     constructor(btn, countdown){
@@ -20,45 +16,55 @@ const timerVm1 = new timerVm('btnA', 'countdownA');
 const timerVm2 = new timerVm('btnB', 'countdownB');
 
 function resetTimer() {
-    timerVm1.inUse = false;
-    timerVm1.time = 299;
+    valueTotal.inUse = false;
+    valueTotal.time = 299;
+}
+
+
+btnTextA.onclick = () => {
+    verify(timerVm1);
+}
+
+var valueTotal;
+
+function choose(htmlValue){
+    return htmlValue;
 }
 
 function verify(timer1){
-    console.log('verify')
-    if(timer1.time > 300){
+    valueTotal = choose(timer1)
+    if(valueTotal.time > 300){
         console.log('if verify')
     }else{
         console.log('else verify')
-        if(timer1.inUse == false){
-            timer1.inUse = true;
+        if(valueTotal.inUse == false){
+            valueTotal.inUse = true;
             intervalTimer = setInterval(startTimer, 8);
         }else{
-            timer1.time += 300;
+            valueTotal.time += 300;
         }
     }
-    return timer1;
 }
 
 function startTimer(){
-    if(timer1.time < 300){
-        timer1.btn.innerText = '+30:00'
+    if(valueTotal.time < 300){
+        valueTotal.btn.innerText = '+30:00'
     }else{
-        timer1.btn.innerText = 'Usar'
+        valueTotal.btn.innerText = 'Usar'
     }
-        var minutes = Math.floor( timer.time / 60);
-        var seconds = timer.time % 60;
+        var minutes = Math.floor( valueTotal.time / 60);
+        var seconds = valueTotal.time % 60;
         
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         
-        timer.countdown.innerHTML = `${minutes}:${seconds}`;
-        timer.time--; 
-    if(timer.time === -1){
+        valueTotal.countdown.innerHTML = `${minutes}:${seconds}`;
+        valueTotal.time--; 
+    if(valueTotal.time === -1){
         console.log('Parando o Timer')
         clearInterval(intervalTimer)
-        resetTimer();
-        timer.countdown.innerText = '10:00'
-        timer.btn.innerText = 'Usar'
+        resetTimer(valueTotal);
+        valueTotal.countdown.innerText = '10:00'
+        valueTotal.btn.innerText = 'Usar'
     };
 };
