@@ -1,65 +1,53 @@
-let btnTextA = document.getElementById('btnA')
-let coutdownA = document.getElementById('countdownA');
-let btnTextB = document.getElementById('btnB')
-let coutdowBn = document.getElementById('countdownB');
+function countdown(element, minutes, seconds) {
+    // Fetch the display element
+    var el = document.getElementById(element);
 
-class timerVm {
-    constructor(btn, countdown){
-        this.btn = document.getElementById(btn);
-        this.countdown = document.getElementById(countdown);
-        this.inUse = false;
-        this.time = 300;
-    }
-}
-const timerVm1 = new timerVm('btnA', 'countdownA');
-const timerVm2 = new timerVm('btnB', 'countdownB');
+    // Set the timer
+    var interval = setInterval(function() {
+        if(seconds == 0) {
+            if(minutes == 0) {
+                (el.innerHTML = "10:00");     
 
-function resetTimer() {
-    valueTotal.inUse = false;
-    valueTotal.time = 299;
-}
-
-
-var valueTotal;
-
-function choose(htmlValue){
-    return htmlValue;
-}
-
-function verify(timer1){
-    valueTotal = choose(timer1)
-    if(valueTotal.time > 300){
-        console.log('if verify')
-    }else{
-        console.log('else verify')
-        if(valueTotal.inUse == false){
-            valueTotal.inUse = true;
-            intervalTimer = setInterval(startTimer, 8);
-        }else{
-            valueTotal.time += 300;
+                clearInterval(interval);
+                return;
+            } else {
+                minutes--;
+                seconds = 60;
+            }
         }
-    }
+
+        if(minutes > 9 && minutes < 100) {
+            var minute_text = minutes;
+        }else if(minutes > 0 && minutes < 10){
+            var minute_text = '0' + minutes;
+        }else {
+            var minute_text = '0' + minutes;
+        }
+        var second_text = seconds < 10 ? '0' : '';
+        el.innerHTML = minute_text + ':' + second_text + seconds;
+        seconds--;
+    }, 100);
 }
 
-function startTimer(){
-    if(valueTotal.time < 300){
-        valueTotal.btn.innerText = '+30:00'
-    }else{
-        valueTotal.btn.innerText = 'Usar'
-    }
-        var minutes = Math.floor( valueTotal.time / 60);
-        var seconds = valueTotal.time % 60;
-        
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-        valueTotal.countdown.innerHTML = `${minutes}:${seconds}`;
-        valueTotal.time--; 
-    if(valueTotal.time === -1){
-        console.log('Parando o Timer')
-        clearInterval(intervalTimer)
-        resetTimer(valueTotal);
-        valueTotal.countdown.innerText = '10:00'
-        valueTotal.btn.innerText = 'Usar'
-    };
-};
+//Start as many timers as you want
+
+var start1 = document.getElementById('timer1');
+var start2 = document.getElementById('timer2');
+var start3 = document.getElementById('timer3');
+var start4 = document.getElementById('timer4');
+
+start1.onclick = function() {
+    countdown('countdown1', 11, 02);
+}
+
+start2.onclick = function() {
+    countdown('countdown2', 0, 10);
+}
+
+start3.onclick = function() {
+    countdown('countdown3', 0, 15);
+}
+
+start4.onclick = function() {
+    countdown('countdown4', 0, 15);
+}
