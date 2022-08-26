@@ -1,7 +1,12 @@
+import { App } from '../src/App.js';
 let btnTextA = document.getElementById('btnA')
 let coutdownA = document.getElementById('countdownA');
 let btnTextB = document.getElementById('btnB')
 let coutdowBn = document.getElementById('countdownB');
+
+function NotifStart(){
+    App.start();
+}
 
 class timerVm {
     constructor(btn, countdown){

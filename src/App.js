@@ -1,6 +1,6 @@
 import { Notifier } from "./Notifier.js";
 
-const App = {
+   const App = {
    async start(){
     try{
         await Notifier.init();

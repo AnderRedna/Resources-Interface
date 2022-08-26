@@ -1,4 +1,4 @@
-// import { App } from './src/App.js';
+import { App } from './src/App.js';
 const modalInfo = document.querySelector('.modal-containerInfo');
 const modalReport = document.querySelector('.modal-containerReport');
 var userUrl = document.querySelector('#systemUrl');
@@ -66,7 +66,7 @@ function changeStatus(z){
 }
 
 function NotifStart(){
-    App.start();
+    console.log(App.start());
 }
 
 
