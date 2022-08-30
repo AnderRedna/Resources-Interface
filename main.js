@@ -95,7 +95,7 @@ function countdown(btnElement, element, minutes, seconds) {
             var second_text = seconds < 10 ? '0' : '';
             el.innerHTML = minute_text + ':' + second_text + seconds;
             seconds--;
-        }, 10);
+        }, 1000);
     }
 
 var start1 = document.getElementById('timer1');
@@ -104,19 +104,19 @@ var start3 = document.getElementById('timer3');
 var start4 = document.getElementById('timer4');
 
 start1.onclick = function() {
-    countdown('timer1', 'Countdown_sm1', 11, 02);
+    countdown('timer1', 'Countdown_sm1', 30, 0);
 }
 
 start2.onclick = function() {
-    countdown('timer2','Countdown_sm2', 5, 20);
+    countdown('timer2','Countdown_sm2', 20, 0);
 }
 
 start3.onclick = function() {
-    countdown('timer3','Countdown_sm3', 3, 15);
+    countdown('timer3','Countdown_sm3', 10, 0);
 }
 
 start4.onclick = function() {
-    countdown('timer4','Countdown_sm4', 1, 15);
+    countdown('timer4','Countdown_sm4', 5, 0);
 }
 
 // not Using

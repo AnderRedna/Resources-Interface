@@ -1,50 +1,100 @@
-function countdown(btnElement, element, minutes, seconds) {
-    var el = document.getElementById(element);
-    var btnEl = document.getElementById(btnElement);
-        var interval = setInterval(function() {
-            if(seconds == 0) {
-                if(minutes == 0) {
+function VmInfo(name, btn, countdown, minutes, seconds){
+    this.name = name;
+    this.btnUsed = btn;
+    this.countdownUsed = countdown;
+    this.minutesVm = minutes;
+    this.secondsVm = seconds;
+}
+
+function ResetVm1(objReset){
+    objReset.minutesVm = 5;
+    objReset.secondsVm = 5;
+}
+console.log(objVm.vm[1].minutes)
+
+const toJson = (objToJson, newMin, newSeg, pos) => {
+    const finished = (error) => {
+        if(error){
+            console.error(error)
+            return;
+        }
+    }
+    objVm.vm[pos].minutes = newMin;
+    objVm.vm[pos].seconds = newSeg;
+    const jsonData = JSON.stringify(objVm)
+    writeTextFile('test.json',jsonData,finished)
+  }
+
+function saveState(objToSave, newMin, newSeg){
+    if(objToSave.name == 'vm1'){
+        toJson(objToSave, newMin, newSeg, 0)
+    }else if(objToSave.name == 'vm2'){
+        toJson(objToSave, newMin, newSeg, 1)
+    }else if(objToSave.name == 'vm3'){
+        toJson(objToSave, newMin, newSeg, 2)
+    }else if(objToSave.name == 'vm4'){
+        toJson(objToSave, newMin, newSeg, 3)
+    }else{
+        console.log("Erro quando transformou em json")
+    }
+}
+
+let Vm1 = new VmInfo(objVm.vm[0].name, objVm.vm[0].btnTimer, objVm.vm[0].countdown, objVm.vm[0].minutes, objVm.vm[0].seconds);
+let Vm2 = new VmInfo(objVm.vm[1].name, objVm.vm[1].btnTimer, objVm.vm[1].countdown, objVm.vm[1].minutes, objVm.vm[1].seconds);
+let Vm3 = new VmInfo(objVm.vm[2].name, objVm.vm[2].btnTimer, objVm.vm[2].countdown, objVm.vm[2].minutes, objVm.vm[2].seconds);
+let Vm4 = new VmInfo(objVm.vm[3].name, objVm.vm[3].btnTimer, objVm.vm[3].countdown, objVm.vm[3].minutes, objVm.vm[3].seconds);
+
+function countdown(object) {
+    var el = document.getElementById(object.countdownUsed);
+    var btnEl = document.getElementById(object.btnUsed);
+    var interval = setInterval(function() {
+            console.log(object.secondsVm)
+            if(object.secondsVm == 0) {
+                if(object.minutesVm == 0) {
+                    ResetVm1(object);
                     el.innerHTML = "10:00";
-                    // btnEl.style.display="inline-flex";
+                    btnEl.style.display="inline-flex";
                     clearInterval(interval);
                     return;
                 }else { 
-                    minutes--;
-                    seconds = 60;
+                    object.minutesVm--;
+                    object.secondsVm = 60;
                 }
             }
-            if(minutes < 5){
-                // btnEl.style.display="none";
+            if(object.minutesVm < 5){
+                btnEl.style.display="none";
             }
-            if(minutes > 9 && minutes < 100) {
-                var minute_text = minutes;
-            }else if(minutes > 0 && minutes < 10){
-                var minute_text = '0' + minutes;
+            if(object.minutesVm > 9 && object.minutesVm < 100) {
+                var minute_text = object.minutesVm;
+            }else if(object.minutesVm > 0 && object.minutesVm < 10){
+                var minute_text = '0' + object.minutesVm;
             }else {
-                var minute_text = '0' + minutes;
+                var minute_text = '0' + object.minutesVm;
             }
-            var second_text = seconds < 10 ? '0' : '';
-            el.innerHTML = minute_text + ':' + second_text + seconds;
-            seconds--;
+            var second_text = object.secondsVm < 10 ? '0' : '';
+            el.innerHTML = minute_text + ':' + second_text + object.secondsVm;
+            object.secondsVm--;
+            saveState(object, object.minutesVm, object.secondsVm)
         }, 10);
     }
+
 var start1 = document.getElementById('timer1');
 var start2 = document.getElementById('timer2');
 var start3 = document.getElementById('timer3');
 var start4 = document.getElementById('timer4');
 
 start1.onclick = function() {
-    countdown('timer1', 'countdown1', 11, 02);
+    countdown(Vm1);
 }
 
 start2.onclick = function() {
-    countdown('timer2','countdown2', 5, 20);
+    countdown(Vm2);
 }
 
 start3.onclick = function() {
-    countdown('timer3','countdown3', 3, 15);
+    countdown(Vm3);
 }
 
 start4.onclick = function() {
-    countdown('timer4','countdown4', 1, 15);
+    countdown(Vm4);
 }
