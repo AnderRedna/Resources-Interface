@@ -86,7 +86,6 @@ var start4 = document.getElementById('timer4');
 start1.onclick = function() {
     countdown(Vm1);
 }
-
 start2.onclick = function() {
     countdown(Vm2);
 }

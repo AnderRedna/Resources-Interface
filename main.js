@@ -1,11 +1,11 @@
-// import { App } from './src/App.js';
+import { App } from './src/App.js';
 const modalInfo = document.querySelector('.modal-containerInfo');
 const modalReport = document.querySelector('.modal-containerReport');
 var userUrl = document.querySelector('#systemUrl');
 var userLogin = document.querySelector('#userLogin');
 var userPass = document.querySelector('#userPass');
 var btnAcess = document.getElementById('textAcess');
-
+const notif = document.getElementById('Notif');
 
 function sysCredentials(url, login, password){
     userUrl.innerHTML = url;
@@ -65,10 +65,9 @@ function changeStatus(z){
     }
 }
 
-function NotifStart(){
+notif.onclick = () => {
     App.start();
 }
-
 function countdown(btnElement, element, minutes, seconds) {
     var el = document.getElementById(element);
     var btnEl = document.getElementById(btnElement);
