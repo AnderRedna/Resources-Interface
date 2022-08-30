@@ -1,8 +1,14 @@
 {
 
-  "type":"module",
+  "type": "module",
+
   "dependencies": {
-    "jquery": "^3.6.0"
+
+    "jquery": "^3.6.0",
+
+    "require": "^0.4.9"
+
   }
-  
+
 }
+
