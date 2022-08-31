@@ -8,7 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./VmTimes.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect();
+    </script>
     <div id='countdown1'>10:00</div>
     <div id='countdown2'>10:00</div>
     <div id='countdown3'>10:00</div>
@@ -19,7 +22,7 @@
     <button id="timer2">Timer2</button>
     <button id="timer3">Timer3</button>
     <button id="timer4">Timer4</button>
-
-<script src="./script.js"></script>
+<script src="VmTimes.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

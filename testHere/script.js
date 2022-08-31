@@ -10,30 +10,25 @@ function ResetVm1(objReset){
     objReset.minutesVm = 5;
     objReset.secondsVm = 5;
 }
-console.log(objVm.vm[1].minutes)
 
-const toJson = (objToJson, newMin, newSeg, pos) => {
-    const finished = (error) => {
-        if(error){
-            console.error(error)
-            return;
-        }
-    }
-    objVm.vm[pos].minutes = newMin;
-    objVm.vm[pos].seconds = newSeg;
-    const jsonData = JSON.stringify(objVm)
-    writeTextFile('test.json',jsonData,finished)
-  }
+
+socket.on('resposta', (objSocket, newMinSocket, newSegSocket) => {
+    console.log("new seg: " + newSegSocket)
+    timer1.innerHTML = newSegSocke
+    //isso aqui ta funcionando, agora so falta trazer tudo que atualiza pra ca
+}
+)
+
 
 function saveState(objToSave, newMin, newSeg){
     if(objToSave.name == 'vm1'){
-        toJson(objToSave, newMin, newSeg, 0)
+        socket.emit("yourEvent", objToSave, newMin, newSeg)
     }else if(objToSave.name == 'vm2'){
-        toJson(objToSave, newMin, newSeg, 1)
+        socket.emit("yourEvent", objToSave, newMin, newSeg)
     }else if(objToSave.name == 'vm3'){
-        toJson(objToSave, newMin, newSeg, 2)
+        socket.emit("yourEvent", objToSave, newMin, newSeg)
     }else if(objToSave.name == 'vm4'){
-        toJson(objToSave, newMin, newSeg, 3)
+        socket.emit("yourEvent", objToSave, newMin, newSeg)
     }else{
         console.log("Erro quando transformou em json")
     }
@@ -43,6 +38,8 @@ let Vm1 = new VmInfo(objVm.vm[0].name, objVm.vm[0].btnTimer, objVm.vm[0].countdo
 let Vm2 = new VmInfo(objVm.vm[1].name, objVm.vm[1].btnTimer, objVm.vm[1].countdown, objVm.vm[1].minutes, objVm.vm[1].seconds);
 let Vm3 = new VmInfo(objVm.vm[2].name, objVm.vm[2].btnTimer, objVm.vm[2].countdown, objVm.vm[2].minutes, objVm.vm[2].seconds);
 let Vm4 = new VmInfo(objVm.vm[3].name, objVm.vm[3].btnTimer, objVm.vm[3].countdown, objVm.vm[3].minutes, objVm.vm[3].seconds);
+
+
 
 function countdown(object) {
     var el = document.getElementById(object.countdownUsed);
@@ -75,7 +72,7 @@ function countdown(object) {
             el.innerHTML = minute_text + ':' + second_text + object.secondsVm;
             object.secondsVm--;
             saveState(object, object.minutesVm, object.secondsVm)
-        }, 10);
+        }, 1000);
     }
 
 var start1 = document.getElementById('timer1');
