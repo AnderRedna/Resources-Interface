@@ -10,7 +10,10 @@
       <title>Vm Treinamento</title>
    </head>
    <body>
-     
+      <script src="socket.io/socket.io.js"></script>
+      <script>
+          const socket = io.connect();
+      </script>
       <div class="modal-containerInfo">
          <div class="modalInfo">
             <h2>Info</h2>
@@ -20,7 +23,7 @@
                <Strong>Usuário:</Strong> <t id="userLogin">user</t> <strong> senha:</strong> <t id="userPass">password</t><br>
             </span>
             <hr>
-            <button class="btnOk" onclick="closeModal()">OK</button>
+            <button id="btnOk" class="btnOk">OK</button>
          </div>
       </div>
       <div class="modal-containerReport">
@@ -34,26 +37,26 @@
             <hr>
             <span id="reportConnect">
                <div class="reportBox">
-                  <button class="btnCancel" onclick="CancelReport()">Cancelar</button>
-                  <button class="btnSend" onclick="sendMail()">Enviar</button>
+                  <button id="btnCancel" class="btnCancel">Cancelar</button>
+                  <button id="btnSend" class="btnSend">Enviar</button>
                </div>
             </span>
          </div>
       </div>
       <div class="grid">
-            <div class="item Bodysm1" onclick="changeStatus(this)">
+            <div id="Item Sm1 1" class="item Bodysm1">
                <div class="header itemsm1">
-                  <div class="info itemsm1" onclick="openModal(1)"></div>
+                  <div class="info itemsm1" id="info ItemSm1"></div>
                   <div class="circle">
                      <h1>SM</h1>
                   </div>
-                  <div class="report itemsm1" onclick="openReport()"></div>
+                  <div class="report ItemSm" id="report ItemSm1"></div>
                </div>
                <div><h2 class="user sm1">User 1</h2></div>
                <div>
                   <h2 class="status sm1">
-                     <div class="statusIcon iconsms1"></div>
-                     Disponível
+                     <div id="statusIcon1 Sm1 1" class="statusIcon iconsms1"></div>
+                     <t id="status ItemSm1 1">Disponível</t>
                   </h2>
                </div>
                <div class="containerTimer">
@@ -63,22 +66,22 @@
                   <button id="timer1">Usar</button>
                </div>
               
-               <h2 id="namesm1" class="name sm1">Disponível</h2>
+               <h2 contenteditable="true" id="namesm1" class="name sm1">Disponível</h2>
             </div>
 
-            <div class="item Bodysm2" onclick="changeStatus(this)">
+            <div id="Item Sm1 2" class="item Bodysm2">
                <div class="header itemsm2">
-                  <div class="info itemsm2" onclick="openModal(1)"></div>
+                  <div class="info itemsm2" id="info ItemSm2"></div>
                   <div class="circle">
                      <h1>SM</h1>
                   </div>
-                  <div class="report itemsm2" onclick="openReport()"></div>
+                  <div class="report ItemSm" id="report ItemSm2"></div>
                </div>
-               <div><h2 class="user sm2">User 1</h2></div>
+               <div><h2 class="user sm2">User 2</h2></div>
                <div>
                   <h2 class="status sm2">
-                     <div class="statusIcon iconsms1"></div>
-                     Disponível
+                     <div id="statusIcon2 Sm1 2" class="statusIcon iconsms2"></div>
+                     <t contenteditable="true" id="status ItemSm1 2">Disponível</t>
                   </h2>
                </div>
                <div class="containerTimer">
@@ -87,22 +90,23 @@
                   </h2>
                   <button id="timer2">Usar</button>
                </div>
-               <h2 id="namesm2" class="name sm">Disponível</h2>
+              
+               <h2 id="namesm1" class="name sm1">Disponível</h2>
             </div>
 
-            <div class="item Bodysm3" onclick="changeStatus(this)">
+            <div id="Item Sm1 3" class="item Bodysm3">
                <div class="header itemsm3">
-                  <div class="info itemsm3" onclick="openModal(1)"></div>
+                  <div class="info itemsm3" id="info ItemSm3"></div>
                   <div class="circle">
                      <h1>SM</h1>
                   </div>
-                  <div class="report itemsm3" onclick="openReport()"></div>
+                  <div class="report ItemSm" id="report ItemSm3"></div>
                </div>
-               <div><h2 class="user sm3">User 1</h2></div>
+               <div><h2 class="user sm3">User 2</h2></div>
                <div>
                   <h2 class="status sm3">
-                     <div class="statusIcon iconsms3"></div>
-                     Disponível
+                     <div id="statusIcon3 Sm1 3" class="statusIcon iconsms3"></div>
+                     <t contenteditable="true"  id="status ItemSm1 3">Disponível</t>
                   </h2>
                </div>
                <div class="containerTimer">
@@ -112,22 +116,22 @@
                   <button id="timer3">Usar</button>
                </div>
               
-               <h2 id="namesm3" class="name sm3">Disponível</h2>
+               <h2 id="namesm1" class="name sm1">Disponível</h2>
             </div>
 
-            <div class="item Bodysm4" onclick="changeStatus(this)">
+            <div id="Item Sm1 4" class="item Bodysm4">
                <div class="header itemsm4">
-                  <div class="info itemsm4" onclick="openModal(1)"></div>
+                  <div class="info itemsm4" id="info ItemSm4"></div>
                   <div class="circle">
                      <h1>SM</h1>
                   </div>
-                  <div class="report itemsm4" onclick="openReport()"></div>
+                  <div class="report ItemSm" id="report ItemSm4"></div>
                </div>
-               <div><h2 class="user sm4">User 1</h2></div>
+               <div><h2 class="user sm4">User 2</h2></div>
                <div>
                   <h2 class="status sm4">
-                     <div class="statusIcon iconsms4"></div>
-                     Disponível
+                     <div id="statusIcon4 Sm1 4" class="statusIcon iconsms4"></div>
+                     <t id="status ItemSm1 4">Disponível</t>
                   </h2>
                </div>
                <div class="containerTimer">
@@ -137,16 +141,19 @@
                   <button id="timer4">Usar</button>
                </div>
               
-               <h2 id="namesm4" class="name sm4">Disponível</h2>
+               <h2 contenteditable="true" id="namesm1" class="name sm1">Disponível</h2>
             </div>
-      </div>
-            <div>
+
+
+
+            <!-- <div>
                <button id="Notif" class="cookie">
                   cookie Teste
                </button>
-            </div>
+            </div> -->
         </div>
-        <script type="module" src="main.js"></script>
+      <script src="VmTimes.js"></script>
+      <script src="main.js"></script>
         <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
       <script type="text/javascript">
