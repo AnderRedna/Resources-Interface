@@ -9,12 +9,13 @@ const io = new Server(server);
 server.listen(3000, () => {
     console.log("Rodando")
 });
-app.use(express.static(path.join(__dirme,)));
+app.use(express.static(path.join(__dirname,)));
 
 io.on('connection', (socket) => {
     console.log('Nova conexao')
 
-    socket.on('yourEvent', (object, objectminutesVm, objectsecondsVm, minute_text, second_text) => {
-        io.emit('resposta', object, objectminutesVm, objectsecondsVm, minute_text, second_text)
+    socket.on('yourEvent', (NAAobject, NAAobjectminutesVm, NAAobjectsecondsVm, NAAminute_text, NAAsecond_text, NAAbtnEl, NAAel) => {
+        console.log('o server recebeu')
+        io.emit('resposta', NAAobject, NAAobjectminutesVm, NAAobjectsecondsVm, NAAminute_text, NAAsecond_text, NAAbtnEl, NAAel)
     }) 
 })
